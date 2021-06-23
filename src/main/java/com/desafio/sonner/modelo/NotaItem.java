@@ -18,7 +18,6 @@ public class NotaItem {
 	private BigDecimal quantidade;
 	@ManyToOne
 	private Nota nota;
-
 	@ManyToOne
 	private Produto produto;
 	
