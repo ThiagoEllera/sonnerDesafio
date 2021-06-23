@@ -17,10 +17,8 @@ public class Cliente {
 	private Integer id;
 	private String codigo;
 	private String nome;
-	@OneToMany
-	@JoinColumn(name = "cliente_id", nullable= false, insertable=false ,updatable=false)
-	private List<Nota> nota;
-	
+
+
 
 	public Integer getId() {
 		return id;

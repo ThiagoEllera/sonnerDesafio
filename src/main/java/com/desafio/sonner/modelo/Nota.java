@@ -3,13 +3,7 @@ package com.desafio.sonner.modelo;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Nota {
@@ -19,11 +13,13 @@ public class Nota {
 	private Integer id;
 	private Date dataCompra;
 	private Integer numero;
+	
 	@ManyToOne
 	private Cliente cliente;
-	@OneToMany
-	@JoinColumn(name = "nota_id", nullable= false, insertable=false ,updatable=false)
+
+	@OneToMany(mappedBy="nota", fetch=FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<NotaItem> notaItem;
+
 
 	public Date getDataCompra() {
 		return dataCompra;

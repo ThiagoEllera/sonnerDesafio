@@ -19,9 +19,7 @@ public class Produto {
 	private String codigo;
 	private String descricao;
 	private BigDecimal valor;
-	@OneToMany
-	@JoinColumn(name = "produto_id", nullable= false, insertable=false ,updatable=false)
-	private List<NotaItem> notaItem;
+
 
 	public Integer getId() {
 		return id;
