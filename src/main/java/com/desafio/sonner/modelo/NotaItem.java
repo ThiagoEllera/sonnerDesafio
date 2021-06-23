@@ -14,14 +14,18 @@ public class NotaItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer numero;
-	private BigDecimal quantidade;
+
 	@ManyToOne
 	private Nota nota;
 
+	private Integer numero;
+
 	@ManyToOne
 	private Produto produto;
-	
+
+	private BigDecimal quantidade;
+
+
 	public NotaItem() {
 		
 	}
