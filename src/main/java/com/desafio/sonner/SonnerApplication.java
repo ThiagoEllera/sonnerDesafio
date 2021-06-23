@@ -8,6 +8,9 @@ public class SonnerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SonnerApplication.class, args);
+
+		
 	}
+	
 
 }

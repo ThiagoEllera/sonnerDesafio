@@ -1,15 +1,12 @@
 package com.desafio.sonner.modelo;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class NotaItem {
@@ -20,12 +17,25 @@ public class NotaItem {
 	private Integer numero;
 	private BigDecimal quantidade;
 	@ManyToOne
-	@JoinColumn(name = "nota_id", nullable= false)
 	private Nota nota;
-	@OneToMany
-	@JoinColumn(name = "produto_id", nullable= false)
-	private List<Produto> produto;
+
+	@ManyToOne
+	private Produto produto;
 	
+	public NotaItem() {
+		
+	}
+	
+	public NotaItem(Integer numero, BigDecimal quantidade, Nota nota, Produto produto) {
+		this.numero = numero;
+		this.quantidade = quantidade;
+		this.nota = nota;
+		this.produto = produto;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
 
 	public Integer getNumero() {
 		return numero;
@@ -43,6 +53,26 @@ public class NotaItem {
 		this.quantidade = quantidade;
 	}
 	
+	public Nota getNota() {
+		return nota;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNota(Nota nota) {
+		this.nota = nota;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
 	
 
 }
