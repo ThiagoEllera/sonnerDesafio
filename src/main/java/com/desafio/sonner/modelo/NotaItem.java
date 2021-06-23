@@ -18,7 +18,9 @@ public class NotaItem {
 	@ManyToOne
 	private Nota nota;
 
+
 	private Integer numero;
+
 
 	@ManyToOne
 	private Produto produto;
