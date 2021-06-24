@@ -8,4 +8,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 
 	Produto findByDescricao(String nomeProduto);
 
+	Produto getByDescricao(String nomeProduto);
+
 }
