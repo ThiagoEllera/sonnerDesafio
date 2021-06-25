@@ -60,7 +60,7 @@ public class NotaItemController {
 	public NotaItemDto detalhar(@PathVariable Integer id) {
 		
 		NotaItem notaItem = notaItemRepository.getById(id);
-		return new NotaItemDto(notaItem);		
+		return new NotaItemDto(notaItem);
 	}
 	
 	@PutMapping("/{id}")
@@ -68,7 +68,7 @@ public class NotaItemController {
 	public ResponseEntity<NotaItemDto> atualizar(@PathVariable Integer id, @RequestBody AtulizacaoNotaItemForm form){
 		NotaItem notaItem = form.atualizar(id, notaItemRepository, produtoRepository, notaRepository);
 		
-		return ResponseEntity.ok(new NotaItemDto(notaItem));		
+		return ResponseEntity.ok(new NotaItemDto(notaItem));
 	}
 	
 	@DeleteMapping("/{id}")
