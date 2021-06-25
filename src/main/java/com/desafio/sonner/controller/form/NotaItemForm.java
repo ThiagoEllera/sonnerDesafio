@@ -2,17 +2,25 @@ package com.desafio.sonner.controller.form;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.desafio.sonner.modelo.Nota;
 import com.desafio.sonner.modelo.NotaItem;
 import com.desafio.sonner.modelo.Produto;
 import com.desafio.sonner.repository.NotaRepository;
 import com.desafio.sonner.repository.ProdutoRepository;
+import javax.validation.constraints.NotNull;
+
 
 public class NotaItemForm {
 
+	@NotNull(message="Numero não pode ser nulo") 
 	private Integer numero;
+	@NotNull
 	private BigDecimal quantidade;	
+	@NotNull 
 	private Integer numeroNota;
+	@NotNull @NotEmpty
 	private String nomeProduto;
 	
 	

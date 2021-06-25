@@ -17,6 +17,14 @@ public class Produto {
 	private String descricao;
 	private BigDecimal valor;
 
+	public Produto() {
+		
+	}
+	public Produto( String codigo, String descricao, BigDecimal valor) {
+		this.codigo = codigo;
+		this.descricao = descricao;
+		this.valor = valor;
+	}
 
 	public Integer getId() {
 		return id;

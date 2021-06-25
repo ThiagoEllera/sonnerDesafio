@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,8 +47,9 @@ public class NotaItemController {
 	
 	@PostMapping
 	@Transactional
-	public ResponseEntity<NotaItemDto> cadastrar(@RequestBody NotaItemForm form, UriComponentsBuilder uriBuilder) {
-		 NotaItem notaItem = form.converter(notaRepository, produtoRepository);
+	public ResponseEntity<NotaItemDto> cadastrar(@RequestBody @Valid NotaItemForm form, UriComponentsBuilder uriBuilder) {
+		
+		NotaItem notaItem = form.converter(notaRepository, produtoRepository);
 		 notaItemRepository.save(notaItem);
 		 
 		 URI uri = uriBuilder.path("/notaItem{id}").buildAndExpand(notaItem.getId()).toUri();
@@ -56,6 +58,7 @@ public class NotaItemController {
 
 	@GetMapping("/{id}")
 	public NotaItemDto detalhar(@PathVariable Integer id) {
+		
 		NotaItem notaItem = notaItemRepository.getById(id);
 		return new NotaItemDto(notaItem);		
 	}

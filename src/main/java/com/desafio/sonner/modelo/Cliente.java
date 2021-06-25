@@ -14,7 +14,14 @@ public class Cliente {
 	private String codigo;
 	private String nome;
 
-
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String codigo, String nome) {
+		this.codigo = codigo;
+		this.nome = nome;
+	}
 
 	public Integer getId() {
 		return id;
