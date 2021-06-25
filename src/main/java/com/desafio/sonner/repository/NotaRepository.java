@@ -8,4 +8,6 @@ public interface NotaRepository extends JpaRepository<Nota, Integer>  {
 
 	Nota findByNumero(Integer numeroNota);
 
+	Nota getByNumero(Integer numeroNota);
+
 }

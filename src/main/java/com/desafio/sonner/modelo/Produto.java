@@ -1,14 +1,11 @@
 package com.desafio.sonner.modelo;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -20,6 +17,14 @@ public class Produto {
 	private String descricao;
 	private BigDecimal valor;
 
+	public Produto() {
+		
+	}
+	public Produto( String codigo, String descricao, BigDecimal valor) {
+		this.codigo = codigo;
+		this.descricao = descricao;
+		this.valor = valor;
+	}
 
 	public Integer getId() {
 		return id;

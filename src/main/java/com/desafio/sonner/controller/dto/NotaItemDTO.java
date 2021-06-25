@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import com.desafio.sonner.modelo.NotaItem;
 
-public class NotaItemDTO {
+public class NotaItemDto {
 	
 	private Integer id;
 	private Integer numero;
@@ -14,7 +14,7 @@ public class NotaItemDTO {
 	private Integer numeroNota;
 	private String nomeProduto;
 	
-	public NotaItemDTO(NotaItem notaItem) {
+	public NotaItemDto(NotaItem notaItem) {
 		this.id = notaItem.getId();
 		this.numero = notaItem.getNumero();
 		this.quantidade = notaItem.getQuantidade();
@@ -58,8 +58,8 @@ public class NotaItemDTO {
 	}
 
 
-	public static List<NotaItemDTO> converter(List<NotaItem> notaItem) {
-		return notaItem.stream().map(NotaItemDTO::new).collect(Collectors.toList());
+	public static List<NotaItemDto> converter(List<NotaItem> notaItem) {
+		return notaItem.stream().map(NotaItemDto::new).collect(Collectors.toList());
 	}
 	
 	

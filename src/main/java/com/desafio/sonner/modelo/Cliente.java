@@ -1,13 +1,9 @@
 package com.desafio.sonner.modelo;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -18,7 +14,14 @@ public class Cliente {
 	private String codigo;
 	private String nome;
 
-
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String codigo, String nome) {
+		this.codigo = codigo;
+		this.nome = nome;
+	}
 
 	public Integer getId() {
 		return id;
