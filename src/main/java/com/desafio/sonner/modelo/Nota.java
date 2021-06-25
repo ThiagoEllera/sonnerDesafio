@@ -13,7 +13,7 @@ public class Nota {
 	private Integer id;
 	private Date dataCompra;
 	private Integer numero;
-	
+
 	@ManyToOne
 	private Cliente cliente;
 
