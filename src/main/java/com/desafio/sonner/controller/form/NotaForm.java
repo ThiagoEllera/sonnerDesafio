@@ -2,17 +2,25 @@ package com.desafio.sonner.controller.form;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.desafio.sonner.modelo.Cliente;
 import com.desafio.sonner.modelo.Nota;
 import com.desafio.sonner.repository.ClienteRepository;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class NotaForm {
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
 	private Date dataCompra;
+	@NotNull
 	private Integer numero;
+	@NotNull @NotEmpty
 	private String nomeCliente;
 
 	public Date getDataCompra() {

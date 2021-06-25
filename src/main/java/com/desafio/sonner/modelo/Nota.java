@@ -1,5 +1,6 @@
 package com.desafio.sonner.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,8 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Nota {
@@ -20,7 +23,8 @@ public class Nota {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
 	private Date dataCompra;
 	private Integer numero;
 	
@@ -28,7 +32,7 @@ public class Nota {
 	private Cliente cliente;
 
 	@OneToMany(mappedBy="nota", fetch=FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<NotaItem> notaItem;
+	private List<NotaItem> notaItem  = new ArrayList<>();;
 
 	public Nota() {
 		

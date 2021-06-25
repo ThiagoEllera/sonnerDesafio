@@ -51,6 +51,7 @@ public class NotaController {
 		 
 		 URI uri = uriBuilder.path("/nota{id}").buildAndExpand(nota.getId()).toUri();
 		 return ResponseEntity.created(uri).body(new NotaDto(nota));
+		 
 	}
 	
 	@GetMapping("/{id}")
